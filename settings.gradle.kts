@@ -23,3 +23,4 @@ rootProject.name = "JetpackTutorial"
 include(":app")
 include(":composearticle")
 include(":taskmanager")
+include(":composequadrant")
