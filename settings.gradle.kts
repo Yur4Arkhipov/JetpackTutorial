@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "JetpackTutorial"
 include(":app")
+include(":diceroller")
