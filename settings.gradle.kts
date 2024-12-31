@@ -23,3 +23,4 @@ rootProject.name = "JetpackTutorial"
 include(":app")
 include(":diceroller")
 include(":lemonade")
+include(":tipcalculator")

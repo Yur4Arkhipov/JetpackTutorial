@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/diceroller" />
             <option value="$PROJECT_DIR$/lemonade" />
+            <option value="$PROJECT_DIR$/tipcalculator" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
