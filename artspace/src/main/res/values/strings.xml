@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ArtSpace</string>
+    <string name="theRooksHaveReturnedContentDescription">The rooks have returned</string>
+    <string name="theRooksHaveReturnedArtist">Alexei Savrasov </string>
+    <string name="theRooksHaveReturnedTitle">The rooks have returned</string>
+    <string name="theRooksHaveReturnedYear">1871</string>
+    <string name="girlWithPeachesDescription">Girl with peaches</string>
+    <string name="girlWithPeachesArtist">Valentin Serov</string>
+    <string name="girlWithPeachesTitle">Girl with peaches</string>
+    <string name="girlWithPeachesYear">1887</string>
+</resources>
