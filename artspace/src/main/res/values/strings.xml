@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">ArtSpace</string>
-    <string name="theRooksHaveReturnedContentDescription">The rooks have returned</string>
+    <string name="theRooksHaveReturnedDescription">The rooks have returned</string>
     <string name="theRooksHaveReturnedArtist">Alexei Savrasov </string>
     <string name="theRooksHaveReturnedTitle">The rooks have returned</string>
     <string name="theRooksHaveReturnedYear">1871</string>
@@ -8,4 +8,16 @@
     <string name="girlWithPeachesArtist">Valentin Serov</string>
     <string name="girlWithPeachesTitle">Girl with peaches</string>
     <string name="girlWithPeachesYear">1887</string>
+    <string name="theNinthWaveDescription">The ninth wave</string>
+    <string name="theNinthWaveArtist">Ivan Aivazovsky</string>
+    <string name="theNinthWaveTitle">The ninth wave</string>
+    <string name="theNinthWaveYear">1850</string>
+    <string name="blackSquareDescription">Black square</string>
+    <string name="blackSquareArtist">Kazimir Malevich</string>
+    <string name="blackSquareTitle">Black square</string>
+    <string name="blackSquareYear">1915</string>
+    <string name="morningInAPineForestDescription">Morning in a pine forest</string>
+    <string name="morningInAPineForestArtist">Ivan Shishkin, Konstantin Savitsky</string>
+    <string name="morningInAPineForestTitle">Morning in a pine forest</string>
+    <string name="morningInAPineForestYear">1889</string>
 </resources>

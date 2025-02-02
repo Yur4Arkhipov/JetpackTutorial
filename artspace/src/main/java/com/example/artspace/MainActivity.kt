@@ -5,6 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,6 +17,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -25,7 +28,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
@@ -64,9 +72,12 @@ fun ArtworkWall(
     Image(
         painter = painter,
         contentDescription = imageDescription,
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .height(400.dp)
+            .shadow(5.dp)
+            .padding(40.dp),
+        contentScale = ContentScale.Crop
     )
 }
 
@@ -79,7 +90,8 @@ fun ArtworkDescription(
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-//        modifier = modifier
+        modifier = modifier
+            .background(Color.Gray.copy(0.2f), shape = RoundedCornerShape(16.dp))
     ) {
         Text(
             text = artworkTitle,
@@ -95,7 +107,7 @@ fun ArtworkDescription(
                 fontWeight = FontWeight.ExtraBold,
                 fontFamily = FontFamily.Default
             )
-            Text(text = " ($artworkYear)")
+            Text(text = " ($artworkYear) ")
         }
     }
 }
@@ -125,53 +137,89 @@ fun DisplayController(
     }
 }
 
+data class Art(
+    val imageResId: Int,
+    val descriptionResId: Int,
+    val titleResId: Int,
+    val artistResId: Int,
+    val yearResId: Int
+)
+
+object ArtRepository {
+    val artsList = listOf(
+        Art(
+            R.drawable.therookshavereturned,
+            R.string.theRooksHaveReturnedDescription,
+            R.string.theRooksHaveReturnedTitle,
+            R.string.theRooksHaveReturnedArtist,
+            R.string.theRooksHaveReturnedYear
+        ),
+        Art(
+            R.drawable.thegirlwithpeaches,
+            R.string.girlWithPeachesDescription,
+            R.string.girlWithPeachesTitle,
+            R.string.girlWithPeachesArtist,
+            R.string.girlWithPeachesYear
+        ),
+        Art(
+            R.drawable.theninthwave,
+            R.string.theNinthWaveDescription,
+            R.string.theNinthWaveTitle,
+            R.string.theNinthWaveArtist,
+            R.string.theNinthWaveYear
+        ),
+        Art(
+            R.drawable.blacksquare,
+            R.string.blackSquareDescription,
+            R.string.blackSquareTitle,
+            R.string.blackSquareArtist,
+            R.string.blackSquareYear
+        ),
+        Art(
+            R.drawable.morninginapineforest,
+            R.string.morningInAPineForestDescription,
+            R.string.morningInAPineForestTitle,
+            R.string.morningInAPineForestArtist,
+            R.string.morningInAPineForestYear
+        ),
+    )
+}
+
+
 @Composable
 fun ArtSpaceApp(
     modifier: Modifier = Modifier
 ) {
     var counter by remember { mutableIntStateOf(0) }
-    val artsPaintersList = listOf(
-        R.drawable.therookshavereturned,
-        R.drawable.girlwithpeaches
-    )
-    val artsImageDescriptionList = listOf(
-        R.string.theRooksHaveReturnedContentDescription,
-        R.string.girlWithPeachesDescription
-    )
-    val artsTitleList = listOf(
-        R.string.theRooksHaveReturnedTitle,
-        R.string.girlWithPeachesTitle
-    )
-    val artsArtistsList = listOf(
-        R.string.theRooksHaveReturnedArtist,
-        R.string.girlWithPeachesArtist
-    )
-    val artsYearList = listOf(
-        R.string.theRooksHaveReturnedYear,
-        R.string.girlWithPeachesYear
-    )
+    val arts = ArtRepository.artsList
+    val totalArts = arts.size
     Column(
-        modifier = modifier
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier.fillMaxWidth()
     ) {
         ArtworkWall(
-            painter = painterResource(artsPaintersList[counter]),
-            imageDescription = stringResource(artsImageDescriptionList[counter]),
+            painter = painterResource(arts[counter].imageResId),
+            imageDescription = stringResource(arts[counter].descriptionResId),
             modifier = Modifier
         )
         Spacer(Modifier.height(40.dp))
         ArtworkDescription(
-            artworkTitle = stringResource(artsTitleList[counter]),
-            artworkArtist = stringResource(artsArtistsList[counter]),
-            artworkYear = stringResource(artsYearList[counter]),
+            artworkTitle = stringResource(arts[counter].titleResId),
+            artworkArtist = stringResource(arts[counter].artistResId),
+            artworkYear = stringResource(arts[counter].yearResId),
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(Modifier.height(80.dp))
         DisplayController(
-            onClickPrevious = { counter-- },
-            onClickNext = { counter++ },
+            onClickPrevious = {
+                counter = if (counter > 0) counter - 1 else totalArts - 1
+                              },
+            onClickNext = {
+                counter = (counter + 1) % totalArts
+                          },
             modifier = Modifier.fillMaxWidth()
         )
-        Text("Counter: $counter")
+//        Text("Counter: $counter")
     }
 }
 
