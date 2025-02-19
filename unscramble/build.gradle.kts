@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.dessertclicker"
+    namespace = "com.example.unscramble"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.dessertclicker"
+        applicationId = "com.example.unscramble"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -43,7 +43,6 @@ dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
@@ -57,4 +56,8 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    testImplementation(libs.junit)
+    androidTestImplementation(platform(libs.androidx.compose.bom))
 }
