@@ -21,3 +21,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "JetpackTutorial"
 include(":app")
+include(":dessertclicker")
+include(":unscramble")
+include(":cupcakeapp")
+include(":lunchtray")
+include(":reply")
