@@ -58,6 +58,8 @@ dependencies {
     implementation(libs.okhttp)
     // Kotlin serialization
     implementation(libs.kotlinx.serialization.json)
+    // Coil
+    implementation(libs.coil.compose)
 
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)
