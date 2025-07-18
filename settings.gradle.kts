@@ -23,3 +23,4 @@ rootProject.name = "JetpackTutorial"
 include(":app")
 include(":racetracker")
 include(":marsphotos")
+include(":sqlbasicsapp")
